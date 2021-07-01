@@ -1,0 +1,42 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo 
+  tasks:
+  - name: Create a 2048-bit SSH key for user ansible in ~ansible/.ssh/id_rsa
+    register: output
+    ansible.builtin.user:
+      name: ansible
+      shell: /usr/bin/zsh
+      group: sudo
+      generate_ssh_key: yes
+      ssh_key_bits: 2048
+      ssh_key_type: ed25519
+      ssh_key_file: .ssh/id_rsa 
+
+  - name: Set authorized key took from file
+    authorized_key:
+      user: ansible
+      state: present
+      key: "{{ lookup('file', './files/public_keys/ansible-vm-key.pub') }}"
+
+  - name: Instalar cosas
+    apt:
+      pkg:
+        - zsh
+
+  - ansible.builtin.shell: |
+          free -m
+    register: output
+    ignore_errors: true
+
+
+  - debug: msg="{{ output }}"
+    when: output.rc > 0
+  - debug: msg="{% if output.changed == false %} No cambio {% else %} Si cambio {% endif %}" 
+  #- debug: msg="prueba texto"
+          #- hosts: apache
+          #become: yes
+          #become_method: sudo 
+          #tasks:
+          #- include_tasks: tasks/Apache/tasks.yml

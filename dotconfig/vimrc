@@ -1,0 +1,27 @@
+
+" espacios al apretar tab
+set tabstop=2
+
+" espacios al acomodar con shift+< o >
+set shiftwidth=2
+
+" espacios al apretar tab
+set expandtab
+
+"tabstop  means how long each tabstop will be. 
+"You can replace 3 with whatever number you desire. 
+"shiftwidth governs indentation, making sure that when you type >> or <<, 
+"the line will be shifted according to the # of spaces you set.
+"To avoid confusion, I would set both tabstop and shiftwidth to the same number.
+"Lastly,  expandtabwill ensure that when you hit the tab key 
+"it will use the # of spaces you set in tabstop. 
+
+syntax on
+
+set nu
+set background=dark
+set visualbell
+set ignorecase
+set incsearch
+set showmatch
+

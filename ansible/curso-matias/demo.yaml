@@ -1,0 +1,17 @@
+all:
+  vars:
+    gather_facts: true
+  hosts:
+    #Curso-DevOps-5:
+    vm-curso:
+      #ansible_host: 10.45.0.211
+      ansible_host: 10.45.0.217
+      #ansible_user: ansv
+      ansible_user: ansible
+      ansible_port: 2222
+      ansible_python_interpreter: /usr/bin/python3
+      ansible_ssh_private_key_file: ~/.ssh/ansible-vm-key
+  children:
+    apache:
+      hosts:
+        vm-curso:

@@ -1,0 +1,4 @@
+instalar apache
+instalar haproxy
+agregar 3 vhosts
+cambiar el puerto en el que corren

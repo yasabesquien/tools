@@ -1,0 +1,6 @@
+---
+- name: Instalar Apache
+  apt:
+    update_cache: yes
+    pkg:
+      apache2
