@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 
 if [ $1 ];then
 	eval $(ssh-agent -s)

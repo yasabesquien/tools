@@ -15,3 +15,6 @@ all:
     apache:
       hosts:
         vm-curso:
+    haproxy:
+      hosts:
+        vm-curso:

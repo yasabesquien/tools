@@ -35,8 +35,14 @@
     when: output.rc > 0
   - debug: msg="{% if output.changed == false %} No cambio {% else %} Si cambio {% endif %}" 
   #- debug: msg="prueba texto"
-          #- hosts: apache
-          #become: yes
-          #become_method: sudo 
-          #tasks:
-          #- include_tasks: tasks/Apache/tasks.yml
+- hosts: apache
+  become: yes
+  become_method: sudo 
+  tasks:
+  - include_tasks: tasks/Apache/tasks.yml
+
+- hosts: haproxy
+  become: yes
+  become_method: sudo 
+  tasks:
+  - include_tasks: tasks/HAProxy/tasks.yml
