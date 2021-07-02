@@ -38,6 +38,11 @@
 - hosts: apache
   become: yes
   become_method: sudo 
+  handlers:
+    - name: restart apache2
+      ansible.builtin.systemd:
+        name: apache2
+        state: reloaded
   tasks:
   - include_tasks: tasks/Apache/tasks.yml
 
@@ -47,6 +52,7 @@
       state: directory
       mode: '0755' 
     loop: "{{ apache_virtualhosts }}"
+    notify: restart apache2
 
   - name: Create vhost
     ansible.builtin.template:
