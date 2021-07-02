@@ -115,7 +115,10 @@ export EDITOR='vim'
 GPG_TTY=$(tty)
 export GPG_TTY
 
-#activo direnv...
+# activo el agente de ssh 
+eval "$(ssh-agent -s)"
+
+# activo direnv...
 eval "$(direnv hook zsh)"
 
 export PYENV_ROOT="$HOME/.pyenv"
