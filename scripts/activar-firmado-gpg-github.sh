@@ -9,5 +9,8 @@ else
 	echo
 	echo "Para firmar todos los commits por defecto en cualquier repositorio local de la computadora:"
 	echo " git config --global commit.gpgsign true"
+  echo
+  echo " para activarlo para el repo actual usamos:"
+  echo " $0 <y> "
 	echo
 fi
