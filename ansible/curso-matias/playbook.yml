@@ -41,8 +41,29 @@
   tasks:
   - include_tasks: tasks/Apache/tasks.yml
 
+  - name: Crear directorio para el sitio
+    ansible.builtin.file:
+      path: /var/www/{{ item.name }}
+      state: directory
+      mode: '0755' 
+    loop: "{{ apache_virtualhosts }}"
+
+  - name: Create vhost
+    ansible.builtin.template:
+    #por defecto lo busca en templates...
+      src: Apache/vhosts.j2
+      dest: "/etc/apache2/sites-enabled/{{ item.name }}.conf"
+    loop: "{{ apache_virtualhosts }}"
+
+  - name: Enable service httpd 
+    ansible.builtin.systemd:
+      name: apache2
+      state: started
+      enabled: yes
+
 - hosts: haproxy
   become: yes
   become_method: sudo 
   tasks:
   - include_tasks: tasks/HAProxy/tasks.yml
+

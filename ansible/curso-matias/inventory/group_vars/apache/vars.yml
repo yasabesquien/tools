@@ -1,0 +1,7 @@
+apache_virtualhosts:
+  - name: "www.test1.com"
+    port: "80"
+  - name: "www.test2.com"
+    port: "80"
+  - name: "www.test3.com"
+    port: "80"
