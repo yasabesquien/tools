@@ -1,0 +1,6 @@
+---
+app_user: "ansible"
+http_host: "www.test.com"
+http_conf: "www.test.com.conf"
+http_port: "80"
+disable_default: true

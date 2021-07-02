@@ -1,0 +1,14 @@
+{% for vhost in apache_vhosts %}
+
+ServerName {{ vhost.servername }}
+DocumentRoot {{ vhost.documentroot }}
+{% if vhost.serveradmin is defined %}
+ServerAdmin {{ vhost.serveradmin }}
+{% endif %}
+
+AllowOverride All
+Options -Indexes FollowSymLinks
+Order allow,deny
+Allow from all
+
+{% endfor %}
