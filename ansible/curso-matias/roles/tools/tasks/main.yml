@@ -1,0 +1,12 @@
+---
+- name: Install zsh, htop, atop, rsync, NTP daemon
+  apt:
+    name:
+      - mc
+      - ntp
+      - zsh
+      - rsync
+      - htop
+      - atop
+      - iperf
+    cache_valid_time: 3600

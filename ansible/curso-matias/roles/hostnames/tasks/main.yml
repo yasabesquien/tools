@@ -1,0 +1,12 @@
+---
+- name: Set Hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Copy "hosts" file
+  copy:
+    src: hosts-remoto
+    dest: /etc/hosts
+    owner: root
+    group: root
+    mode: 0644

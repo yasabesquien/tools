@@ -1,0 +1,10 @@
+---
+- name: Copy ansible .zshrc
+  copy:
+    src: ../../../../dotconfig/zshrc-minimal
+    dest: /home/ansible/.zshrc
+    owner: ansible
+    group: users
+    mode: 0644
+
+

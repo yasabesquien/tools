@@ -1,0 +1,8 @@
+{% for i in groups["Webserver"] %}
+    server app{{ loop.index }backend app
+    balance    roundrobin
+{% for i in groups["Webserver"] %}
+    server app{{ loop.index }} {{ i }}:80 check
+{% endfor %}
+} {{ i }}:80 check
+{% endfor %}

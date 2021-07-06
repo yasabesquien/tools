@@ -4,6 +4,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="/root/.oh-my-zsh"
 
+export TERM=xterm-256color
+
+export PATH=$PATH:~/.local/bin
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -15,7 +19,7 @@ export ZSH="/root/.oh-my-zsh"
 #ZSH_THEME="crunch" # 
 #ZSH_THEME="dst" # 
 #ZSH_THEME="fino-time" # muy bueno... 
-#ZSH_THEME="nanotech" # no muetra host ni usuario...
+#ZSH_THEME="nanotech" # no muestra host ni usuario...
 #ZSH_THEME="pmcgee" # safa...
 ZSH_THEME="trapd00r" # gris naranja azul, lindo, sin hora...
 #ZSH_THEME="ys" # celeste, verde, amarillo, el que uso siempre...
@@ -129,3 +133,29 @@ export TZ="America/Argentina/Buenos_Aires"
 
 #cargo los alias 
 source ~/.alias
+
+#fix home/end
+bindkey '\e[1~'   beginning-of-line  # Linux console
+bindkey '\e[H'    beginning-of-line  # xterm
+bindkey '\eOH'    beginning-of-line  # gnome-terminal
+bindkey '\e[2~'   overwrite-mode     # Linux console, xterm, gnome-terminal
+bindkey '\e[3~'   delete-char        # Linux console, xterm, gnome-terminal
+bindkey '\e[4~'   end-of-line        # Linux console
+bindkey '\e[F'    end-of-line        # xterm
+bindkey '\eOF'    end-of-line        # gnome-terminal
+
+#carga dinamica de antibody:
+# cargo los plugins en antibody...
+#antibody bundle < ~/.zsh_plugins.txt
+# los uso:
+#source <(antibody init)
+
+# carga estatica de antibody:
+#primero genero el .sh de un .txt que tenga los plugins
+#ejecutando:
+# scripts/antibody-static-conf.sh 
+# y lo cargo con esto:
+source ~/.zsh_plugins.sh
+
+# usando bat con fzf...
+#fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'

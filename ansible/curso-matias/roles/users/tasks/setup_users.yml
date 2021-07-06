@@ -1,0 +1,22 @@
+---
+- name: Create "sven" user
+  user:
+    name: sven
+    shell: /bin/bash
+    uid: 1000
+    group: users
+    groups: sudo
+    append: true # --> user is not removed from any other group
+    password: $6$2i/vlnXuBj/m8A$y9xNcMAJQstggFMSWYbVeJStvvDpk4s4jScPv074Fb94jSfCbxyWSPz.tmMPQ6Qiy6mnpn07SQRTe6Sex4Pfi/
+
+- name: Add user "sven" to "sudo-nopasswd" group
+  user:
+    name: sven
+    groups: sudo-nopasswd
+    append: true # --> user is not removed from any other group
+  when: passwordless_sudo is defined and passwordless_sudo == true
+
+- name: Remove user "sven" from "sudo-nopasswd" group
+  shell: /usr/sbin/delgroup sven sudo-nopasswd
+  when: not (passwordless_sudo is defined and passwordless_sudo == true)
+  ignore_errors: yes

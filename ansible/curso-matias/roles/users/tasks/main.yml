@@ -1,0 +1,54 @@
+---
+- name: Install sudo
+  apt:
+    name: sudo
+
+- name: Create "sven" user
+  user:
+    name: sven
+    shell: /bin/bash
+    uid: 1000
+    group: users
+    groups: sudo
+    append: true # --> user is not removed from any other group
+    password: $6$2i/vlnXuBj/m8A$y9xNcMAJQstggFMSWYbVeJStvvDpk4s4jScPv074Fb94jSfCbxyWSPz.tmMPQ6Qiy6mnpn07SQRTe6Sex4Pfi/
+
+- name: Create "sudo-nopasswd" group
+  group:
+    name: sudo-nopasswd
+
+- name: Add user "sven" to "sudo-nopasswd" group
+  user:
+    name: sven
+    groups: sudo-nopasswd
+    append: true # --> user is not removed from any other group
+  when: passwordless_sudo is defined and passwordless_sudo == true
+
+- name: Remove user "sven" from "sudo-nopasswd" group
+  shell: /usr/sbin/delgroup sven sudo-nopasswd
+  when: not (passwordless_sudo is defined and passwordless_sudo == true)
+  ignore_errors: yes
+
+- name: Add "sudo-nopasswd" group to "sudoers" file
+  lineinfile:
+    dest: /etc/sudoers
+    line: '%sudo-nopasswd ALL=(ALL:ALL) NOPASSWD:ALL'
+    regexp: '^%sudo-nopasswd'
+
+- name: "Create root user's .ssh directory"
+  file:
+    path: /root/.ssh
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+
+- name: "Copy root user's authorized_keys"
+  copy:
+    src: authorized_keys_root
+    dest: /root/.ssh/authorized_keys
+    owner: root
+    group: root
+    mode: 0600
+
+

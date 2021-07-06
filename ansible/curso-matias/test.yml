@@ -1,0 +1,16 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+#    - apt_upgrade
+#    - hostnames
+#    - tools
+#    - geerlingguy.firewall
+#    - geerlingguy.docker
+#    - wordpress_docker
+#    - zshrc
+#    - gantsign.oh-my-zsh # este rol falla...
+#    - install_oh-my-zsh
+    - apache_docker
+    - haproxy

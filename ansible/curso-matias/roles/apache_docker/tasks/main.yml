@@ -1,0 +1,44 @@
+---
+- name: Install Python3
+  package:
+    name: python3
+    state: present
+
+- name: Install Python3-pip
+  package:
+    name: python3-pip
+    state: present
+
+- name: Install Docker SDK
+  pip:
+    name: docker-py
+
+- name: Creo un directorio
+  file:
+    path: /workspace
+    state: directory
+
+- name: Copio la pagina
+  copy:
+    src: "index.html"
+    dest: "/workspace"
+
+- name: Me bajo la imagen de httpd
+  docker_image:
+    name: httpd
+    source: pull
+
+- name: Install apache en docker
+  docker_container:
+    name: webserver
+    image: httpd
+    state: started
+    detach: yes
+    pull: yes
+    exposed_ports:
+    - "80"
+    ports:
+    - "8080:80"
+    volumes:
+    - /workspace:/usr/local/apache2/htdocs
+

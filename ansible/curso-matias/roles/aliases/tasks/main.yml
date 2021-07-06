@@ -1,0 +1,10 @@
+---
+- name: Copy sven's .bash_aliases
+  copy:
+    src: .bash_aliases
+    dest: /home/sven/.bash_aliases
+    owner: sven
+    group: users
+    mode: 0644
+
+
