@@ -9,8 +9,8 @@
 #    - geerlingguy.firewall
 #    - geerlingguy.docker
 #    - wordpress_docker
-#    - zshrc
+    - zshrc
 #    - gantsign.oh-my-zsh # este rol falla...
 #    - install_oh-my-zsh
-    - apache_docker
-    - haproxy
+#    - apache_docker
+#    - haproxy

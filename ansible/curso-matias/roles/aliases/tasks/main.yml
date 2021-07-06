@@ -1,9 +1,9 @@
 ---
-- name: Copy sven's .bash_aliases
+- name: Copy ansible .bash_aliases
   copy:
     src: .bash_aliases
-    dest: /home/sven/.bash_aliases
-    owner: sven
+    dest: /home/ansible/.bash_aliases
+    owner: ansible
     group: users
     mode: 0644
 

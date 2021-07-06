@@ -10,3 +10,6 @@ fi
 # ls aliases from root user
 alias l='ls -lA'
 alias ll='ls -l'
+
+alias df='df -h'
+alias du='du -h'
