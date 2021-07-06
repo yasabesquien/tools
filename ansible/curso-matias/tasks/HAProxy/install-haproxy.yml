@@ -1,0 +1,4 @@
+- name: Check if the Certbot certificates exist
+  stat:
+    path: /opt/certbot/haproxy_fullchains/__fallback.pem
+  register: certbot_cert_check_result

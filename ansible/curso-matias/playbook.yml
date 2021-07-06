@@ -51,4 +51,14 @@
   become_method: sudo 
   tasks:
   - include_tasks: tasks/HAProxy/tasks.yml
+  #- import_tasks: install_haproxy.yml
+  #- import_tasks: install_certbot.yml
+  #- import_tasks: setup_certbot_script.yml
 
+- hosts: all
+  vars:
+    docker_users:
+      - ansible
+  become: yes
+  roles:
+    - geerlingguy.docker
