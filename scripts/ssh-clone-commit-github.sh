@@ -1,8 +1,12 @@
 #!/usr/bin/zsh
 
 if [ $1 ];then
+	echo "levantando el agente..."
 	eval $(ssh-agent -s)
-	ssh-add $1
+	echo "la clave no se puede cargar con un script hay que hacerlo en la sheel que estamos usando..."
+	echo
+	echo " ssh-add $1 "
+	echo
 else
 	echo
 	echo " para que funione la llave tiene que tener clave... "
