@@ -21,7 +21,7 @@ if [ $1 ];then
   ./activar-firmado-gpg-github.sh y
 
   echo " cargando la key de ssh para hacer los push..."
-  echo " ssh-add $1 "
+	./ssh-clone-commit-github.sh $1
 
 else
 

@@ -2,7 +2,7 @@
 - hosts: all
   become: yes
   vars:
-    inventory_hostname = www.test.com
+    - inventory_hostname = www.test.com
   tasks:
   - name: Enable server in 'www' backend pool wait until healthy
     community.general.haproxy:

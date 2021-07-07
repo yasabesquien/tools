@@ -5,7 +5,7 @@
 
 #esto es para debian
 #necesita sudo para el siguiente...
-apt install -y ncurses-dev unzip
+apt install -y wget ncurses-dev unzip
 wget -c https://github.com/vim/vim/archive/master.zip	
 unzip master.zip
 rm master.zip
@@ -17,4 +17,5 @@ make
 make install
 cp /usr/bin/vim /usr/bin/vim-bkp
 cp vim /usr/bin/vim
+rm -rf vim-master
 vim 

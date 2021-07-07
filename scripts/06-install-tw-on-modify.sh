@@ -7,4 +7,5 @@ tar xvzf  "$FILE"
 rm "$FILE"
 cd "$APP"-"$VER"/ext
 cp on-modify.timewarrior ~/.task/hooks
-chmox +x ~/.task/hooks/on-modify.timewarrior
+rm -rf "$APP"-"$VER"
+chmod +x ~/.task/hooks/on-modify.timewarrior

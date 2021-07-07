@@ -10,5 +10,10 @@ djui/alias-tips
 # annotations are also allowed:
 #ohmyzsh/ohmyzsh path:plugins/aws
 
-zsh-users/zsh-syntax-highlighting
+#zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zdharma/zsh-diff-so-fancy
+zdharma/fast-syntax-highlighting
+
+#robbyrussell/oh-my-zsh path:themes/ys.zsh-theme
 #zsh-users/zsh-history-substring-search

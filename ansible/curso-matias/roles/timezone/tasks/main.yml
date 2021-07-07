@@ -1,0 +1,4 @@
+---
+- name: Set Timezone America/Argentina/BuenosAires
+  timezone:
+    name: America/Argentina/Buenos_Aires

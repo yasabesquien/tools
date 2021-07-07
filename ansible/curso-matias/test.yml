@@ -1,7 +1,7 @@
 ---
 - hosts: all
-  become: yes
-  become_method: sudo
+#  become: yes
+#  become_method: sudo
   roles:
 #    - apt_upgrade
 #    - hostnames
@@ -14,3 +14,13 @@
 #    - install_oh-my-zsh
 #    - apache_docker
 #    - haproxy
+    - timezone
+    - install_antibody
+    - role: iancleary.zsh
+#      become: yes
+#      become_method: sudo
+      users:
+        - username: ansible
+        - username: ansv
+      ohmyzsh_bundles:
+        - name: zsh-syntax-highlighting
