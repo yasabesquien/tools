@@ -1,0 +1,5 @@
+ansible>=3.0.0
+jmespath
+ldap3>=2.9.0
+pywinrm>=0.4.1
+pywinrm[kerberos]

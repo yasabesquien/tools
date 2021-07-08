@@ -1,0 +1,29 @@
+---
+all:
+  vars:
+    gather_facts: true
+  hosts:
+    ADDEV:
+      ansible_host: addev.ndev.gob.ar       # 10.40.40.20 # AD NDEV
+    ADDEV2:
+      ansible_host: addev2.ndev.gob.ar      # 10.40.40.21 # AD NDEV 2
+  children:
+    active-directory:
+      vars:
+        ansible_port: 5985
+        ansible_connection: winrm
+        ansible_winrm_transport: kerberos
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: http
+      hosts:
+        ADDEV:
+    windows-server:
+      vars:
+        ansible_port: 5985
+        ansible_connection: winrm
+        ansible_winrm_transport: kerberos
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: http
+      hosts:
+        ADDEV:
+        ADDEV2:

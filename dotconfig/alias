@@ -7,3 +7,4 @@ alias vi='vim '
 alias du='du -h'
 alias df='df -h'
 
+alias ping='hping3 '

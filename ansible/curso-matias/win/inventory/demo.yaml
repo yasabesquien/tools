@@ -1,0 +1,185 @@
+---
+all:
+  vars:
+    ansible_port: 5986
+    ansible_connection: winrm
+    ansible_winrm_transport: kerberos
+    ansible_winrm_server_cert_validation: ignore
+    ansible_winrm_scheme: https
+    gather_facts: true
+  hosts:
+    DCNPROD:
+      ansible_host: dcnprod.nprod.gob.ar       # 10.45.0.20 # AD Moreno
+    DCNPROD2:
+      ansible_host: dcnprod2.nprod.gob.ar      # 10.45.0.21 # AD Moreno 2
+    NAPP6:
+      ansible_host: napp6.nprod.gob.ar         # 10.45.0.40 # CLIENTE-WINDOWS
+    NAPP7:
+      ansible_host: napp7.nprod.gob.ar         # 10.45.0.41 # CLIENTE-WINDOWS
+    NFISCALIZAR:
+      ansible_host: nfiscalizar.nprod.gob.ar   # 10.45.0.42 # CLIENTE-WINDOWS
+    NSICAM:
+      ansible_host: nsicam.nprod.gob.ar        # 10.45.0.43 # CLIENTE-WINDOWS
+    SAAS:
+      ansible_host: saas.nprod.gob.ar          # 10.45.0.50 # CLIENTE-WINDOWS
+    SINAIFE:
+      ansible_host: sinaife.nprod.gob.ar       # 10.45.0.60 # CLIENTE-WINDOWS # Fuera de dominio
+    SINAIFEALPHA:
+      ansible_host: sinaifealpha.nprod.gob.ar  # 10.45.0.61 # CLIENTE-WINDOWS
+    SINAIFEBETA:
+      ansible_host: sinaifebeta.nprod.gob.ar   # 10.45.0.62 # CLIENTE-WINDOWS
+    SINAIFEGAMMA:
+      ansible_host: sinaifegamma.nprod.gob.ar  # 10.45.0.63 # CLIENTE-WINDOWS
+    SINALIFEAPP1:
+      ansible_host: sinalifeapp1.nprod.gob.ar  # 10.45.0.64 # CLIENTE-WINDOWS
+    SINALICFE:
+      ansible_host: sinalicfe.nprod.gob.ar     # 10.45.0.65 # CLIENTE-WINDOWS
+    SINAIDB:
+      ansible_host: sinaidb.nprod.gob.ar       # 10.45.0.70 # CLIENTE-WINDOWS # Fuera de dominio
+    SAASSINAI:
+      ansible_host: saassinai.nprod.gob.ar     # 10.45.0.72 # CLIENTE-WINDOWS
+    # SAASSINAILIC:
+    #   ansible_host: saassinalic.nprod.gob.ar   # 10.45.0.73 # CLIENTE-WINDOWS
+    SINALICDB:
+      ansible_host: sinalicdb.nprod.gob.ar     # 10.45.0.75 # CLIENTE-WINDOWS
+    NAPPDB:
+      ansible_host: nappdb.nprod.gob.ar        # 10.45.0.77 # CLIENTE-WINDOWS
+    SIPREPPROD:
+      ansible_host: siprepprod.nprod.gob.ar    # 10.45.0.37 # CLIENTE-WINDOWS
+    SOTIPDA:
+      ansible_host: sotipda.nprod.gob.ar       # 10.45.0.78 # CLIENTE-WINDOWS
+    SOTIPDADB:
+      ansible_host: sotipdadb.nprod.gob.ar     # 10.45.0.79 # CLIENTE-WINDOWS
+    LINTIDBPROD:
+      ansible_host: lintidbprod.nprod.gob.ar   # 10.45.0.80 # CLIENTE-WINDOWS
+    NODWSUS:
+      ansible_host: nodwsus.nprod.gob.ar       # 10.45.0.90 # CLIENTE-WINDOWS
+    HAPRODV1:
+      ansible_host: 10.45.0.22
+    HAPRODV2:
+      ansible_host: 10.45.0.23
+    HAPROXY3:
+      ansible_host: 10.45.0.24
+    HAPROXY4:
+      ansible_host: 10.45.0.25
+    BASEDNRPA:
+      ansible_host: 10.45.0.26
+    BACULA:
+      ansible_host: 10.45.0.27
+    BIOMETRIAS:
+      ansible_host: 10.45.0.29
+    MAILSINALIC:
+      ansible_host: 10.45.0.31
+    SIGISVI2PROD:
+      ansible_host: 10.45.0.67
+    LINTI:
+      ansible_host: 10.45.0.81
+    VPNEXTERNOS:
+      ansible_host: 10.45.0.99
+    DEBIANMIRROR:
+      ansible_host: 10.45.0.100
+    PROCSPBA:
+      ansible_host: 10.45.0.203
+    # SINALICFE2K8:
+    #   ansible_host: sinalicfe2k8.nprod.gob.ar  # 10.45.0.71 # CLIENTE-WINDOWS # W2008 No cuenta con PS v3
+    # SINALICFE2K82:
+    #   ansible_host: sinalicfe2k82.nprod.gob.ar # 10.45.0.74 # CLIENTE-WINDOWS # W2008 No cuenta con PS v3
+    # SINALICFE2K83:
+    #   ansible_host: sinalicfe2k83.nprod.gob.ar # 10.45.0.76 # CLIENTE-WINDOWS # W2008 No cuenta con PS v3
+    # SINALIC WS:
+    #   ansible_host: 10.45.0.50
+    # ANSV-S02-Claro:
+    #     ansible_host: 10.45.0.95
+    #     ansible_user: admin-ansv
+    #     ansible_password: Pa$$word
+    ANSV-S07-VpnAd:
+        ansible_host: 10.45.0.33
+        ansible_user: administrator
+        ansible_password: 
+    # ObservatorioDB-ORIGINAL:
+    #   ansible_host: 10.20.4.105
+  children:
+    active-directory:
+      vars:
+        ansible_port: 5986
+        ansible_connection: winrm
+        ansible_winrm_transport: kerberos
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: https
+      hosts:
+        DCNPROD:
+    windows-standalone: # No están en el dominio
+      vars:
+        ansible_user: administrador
+        ansible_password: 
+        ansible_connection: winrm
+        ansible_port: 5986
+        ansible_winrm_scheme: https
+        ansible_winrm_transport: ntlm
+      hosts: &windows_standalone
+        # ANSV-S02-Claro:
+        SINAIDB:
+        SINALICDB:
+        SINAIFE:        
+    adcomputers:
+      vars:
+        ansible_winrm_transport: kerberos
+      hosts: &windows_clientes_ad
+        # DCNPROD:
+        # DCNPROD2:
+        NAPP6:
+        NAPP7:
+        NAPPDB:
+        NFISCALIZAR:
+        NSICAM:
+        SAAS:
+        SINAIFEALPHA:
+        SINAIFEBETA:
+        SINAIFEGAMMA:
+        SINALIFEAPP1:
+        # SINALICFE2K8:
+        # SINALICFE2K82:
+        # SINALICFE2K83:
+        SINALICFE:
+        SAASSINAI:
+        #SAASSINALIC:
+        SIPREPPROD:
+        SOTIPDA:
+        SOTIPDADB:
+        LINTIDBPROD:
+        NODWSUS:
+    windows-server:
+      vars:
+        ansible_port: 5985
+        ansible_connection: winrm
+        ansible_winrm_transport: kerberos
+        ansible_winrm_server_cert_validation: ignore
+        ansible_winrm_scheme: http
+      hosts:
+        <<: *windows_standalone
+        <<: *windows_clientes_ad
+        DCNPROD:
+        DCNPROD2:
+        # SINALICFE2K8:
+        # SINALICFE2K82:
+        # SINALICFE2K83:
+    debian-server:
+      vars:
+        ansible_port: 2222
+        ansible_user: ansv
+        ansible_become: true
+        ansible_become_method: sudo
+      hosts:
+        # HAPRODV1:
+        # HAPRODV2:
+        # HAPROXY3:
+        # HAPROXY4:
+        BASEDNRPA:
+        BACULA:
+        BIOMETRIAS:
+        MAILSINALIC:
+        SIGISVI2PROD:
+        LINTI:
+        # VPNEXTERNOS:
+        DEBIANMIRROR:
+        PROCSPBA:

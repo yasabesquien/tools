@@ -1,0 +1,16 @@
+---
+- hosts: adcomputers
+  gather_facts: false
+  tasks:
+  - name: Configurando perfiles
+    ansible.windows.win_shell: |
+      dir
+#guarda la salida en una variable
+    register: newlink
+
+#muestra el contenido de la variable, pero solo la salida
+  - debug: msg={{ newlink.stdout }}
+#muestra el contenido de la variable, pero solo rc 
+#  - debug: msg={{ newlink.rc }}
+#muestra toda la salida
+#  - debug: msg={{ newlink }}
