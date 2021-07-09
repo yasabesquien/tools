@@ -1,7 +1,7 @@
 ---
 - hosts: all
   become: yes
-  become_method: sudo 
+  become_method: sudo
   tasks:
   - name: Create a 2048-bit SSH key for user ansible in ~ansible/.ssh/id_rsa
     register: output
@@ -12,7 +12,7 @@
       generate_ssh_key: yes
       ssh_key_bits: 2048
       ssh_key_type: ed25519
-      ssh_key_file: .ssh/id_rsa 
+      ssh_key_file: .ssh/id_rsa
 
   - name: Set authorized key took from file
     authorized_key:
@@ -33,11 +33,11 @@
 
   - debug: msg="{{ output }}"
     when: output.rc > 0
-  - debug: msg="{% if output.changed == false %} No cambio {% else %} Si cambio {% endif %}" 
+  - debug: msg="{% if output.changed == false %} No cambio {% else %} Si cambio {% endif %}"
   #- debug: msg="prueba texto"
 - hosts: apache
   become: yes
-  become_method: sudo 
+  become_method: sudo
   handlers:
     - name: restart apache2
       ansible.builtin.systemd:
