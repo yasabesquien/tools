@@ -9,13 +9,14 @@ apt install -y wget ncurses-dev unzip
 wget -c https://github.com/vim/vim/archive/master.zip	
 unzip master.zip
 rm master.zip
-cd vim-master
-cd src/
+cd vim-master/src
 ./configure
 make
 #necesita sudo para el siguiente...
 make install
 cp /usr/bin/vim /usr/bin/vim-bkp
 cp vim /usr/bin/vim
+cd ..
+cd ..
 rm -rf vim-master
 vim 

@@ -1,1 +1,1 @@
-ansible-inventory -i demo.yaml --graph
+ansible-inventory -i inventory/demo.yaml --graph
