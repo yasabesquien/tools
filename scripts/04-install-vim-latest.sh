@@ -19,4 +19,4 @@ cp vim /usr/bin/vim
 cd ..
 cd ..
 rm -rf vim-master
-vim 
+#vim 
