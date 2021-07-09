@@ -8,5 +8,6 @@ rm "$FILE"
 cd "$APP"-"$VER"/ext
 cp on-modify.timewarrior ~/.task/hooks
 cd ..
+cd ..
 rm -rf "$APP"-"$VER"
 chmod +x ~/.task/hooks/on-modify.timewarrior

@@ -3,8 +3,14 @@ alias ll='ls -lh'
 alias la='ls -A'
 
 alias vi='vim '
+alias v='nvim '
 
 alias du='du -h'
 alias df='df -h'
 
 alias ping='hping3 '
+
+alias bat='batcat '
+
+alias gsi='git status --ignored'
+alias gcm='git commit -m '
