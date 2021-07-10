@@ -9,7 +9,7 @@ logs
 
 /dist
 
-.env
+.env*
 
 .idea/
 .vscode/
