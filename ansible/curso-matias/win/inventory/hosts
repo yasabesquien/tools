@@ -1,0 +1,12 @@
+[win]
+
+DCNPROD ansible_host=dcnprod.nprod.gob.ar # 10.45.0.20 # AD Moreno
+win1    ansible_host=win1.nprod.gob.ar # 10.45.0.219 # win1
+
+[all:vars]
+ansible_port=5986
+ansible_connection=winrm
+ansible_winrm_transport=kerberos
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_scheme=https
+gather_facts=true
