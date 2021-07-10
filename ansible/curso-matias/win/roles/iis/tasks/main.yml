@@ -1,0 +1,7 @@
+---
+- name: Install IIS Server 10
+  win_feature:
+    name:
+      - Web-Server
+      - Web-Mgmt-Console
+    state: present

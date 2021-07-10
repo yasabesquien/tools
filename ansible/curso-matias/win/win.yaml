@@ -1,0 +1,10 @@
+---
+- hosts: win1
+  gather_facts: false
+  roles:
+#  - set_timezone
+#  - reboot
+#  - install_win_updates
+#  - install_choco
+  - copy
+  - iis_new_site

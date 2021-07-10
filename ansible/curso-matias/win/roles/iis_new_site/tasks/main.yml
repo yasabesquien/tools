@@ -1,0 +1,35 @@
+- name: Create a directory
+  ansible.windows.win_file:
+    path: C:\inetpub\wwwroot\sitio.logs
+    state: directory
+
+- name: Hello IIS site
+  community.windows.win_iis_website:
+    name: Hello
+    state: started
+    port: 80
+    ip: '*'
+    hostname: '*'
+    application_pool: "Default Web Site"
+    physical_path: C:\inetpub\wwwroot\sitio
+    parameters: logfile.directory:C:\inetpub\wwwroot\sitio.logs
+  register: website
+
+# Remove Default Web Site and the standard port 80 binding
+#- name: Remove Default Web Site
+#  community.windows.win_iis_website:
+#    name: "Default Web Site"
+#    state: absent
+
+# Create a WebSite with custom Logging configuration (Logs Location, Format and Rolling Over).
+
+#- name: Creating WebSite with Custom Log location, Format 3WC and rolling over every hour.
+#  community.windows.win_iis_website:
+#    name: MyCustom_Web_Shop_Site
+#    state: started
+#    port: 80
+#    ip: '*'
+#    hostname: '*'
+#    physical_path: D:\wwwroot\websites\my-shop-site
+#    parameters: logfile.directory:D:\IIS-LOGS\websites\my-shop-site|logfile.period:Hourly|logFile.logFormat:W3C
+#    application_pool: my-shop-site  

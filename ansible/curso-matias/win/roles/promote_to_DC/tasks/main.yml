@@ -1,0 +1,10 @@
+---
+- name: "Promote to DC"
+  win_domain_controller:
+     dns_domain_name: nprod.gob.ar
+     domain_admin_user: ansible@nprod.gob.ar
+     domain_admin_password: password
+     safe_mode_password: password
+     state: domain_controller
+
+#The following playbook will promote a Windows member server to be a domain controller in an existing forest. Make sure that the service account that you are using is a member of the Enterprise Admins group, Scheme Admins and Domain Admins. You also need to provide the username, domain name and password of the user.

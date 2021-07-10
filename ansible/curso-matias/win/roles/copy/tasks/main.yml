@@ -1,0 +1,26 @@
+---
+- name: Create a directory sitio
+  ansible.windows.win_file:
+    path: C:\inetpub\wwwroot\sitio
+    state: directory
+
+- name: Create a directory sitio.logs
+  ansible.windows.win_file:
+    path: C:\inetpub\wwwroot\sitio.logs
+    state: directory
+
+- name: Copy a single aspx file
+  ansible.windows.win_copy:
+    src: sitio/index.aspx
+    dest: C:\inetpub\wwwroot\sitio
+
+- name: Copy a single html file
+  ansible.windows.win_copy:
+    src: sitio/index.html
+    dest: C:\inetpub\wwwroot\sitio
+
+#- name: Copy a folder recursively where the source is on the remote host
+#  ansible.windows.win_copy:
+#    src: C:\Temp\index.aspx
+#    dest: C:\inetpub\wwwroot\sitio
+#    remote_src: yes

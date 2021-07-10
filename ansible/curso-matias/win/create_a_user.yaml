@@ -1,0 +1,14 @@
+---
+- name: "Work with Active Directory"
+  hosts: windows
+  tasks:
+    - name: "Create a user"
+      win_domain_user:
+        firstname: "Operator"
+        surname: "ANSV"
+        name: "op"
+        upn: "op@nprod.gob.ar"
+        state: present
+        fullname: "Operator ANSV"
+        password: "USERPASSWORD"
+        path: "dc=seguridadvial,dc=gob, dc=ar"

@@ -1,0 +1,6 @@
+---
+- name: update with Chocolatey
+  win_chocolatey:
+       name: all
+       state: latest
+       ignore_checksums: yes

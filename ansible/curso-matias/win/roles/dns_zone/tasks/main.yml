@@ -1,0 +1,8 @@
+---
+- name: "Create a DNS Zone"
+  community.windows.win_dns_zone:
+     name: seguridadvial.gob.ar
+     replication: domain
+     type: primary
+     state: present
+#     state: absent

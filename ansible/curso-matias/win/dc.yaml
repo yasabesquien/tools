@@ -1,0 +1,5 @@
+---
+- hosts: DCNPROD
+  gather_facts: false
+  roles:
+  - dns_zone

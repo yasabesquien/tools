@@ -1,0 +1,9 @@
+---
+- hosts: windows
+  tasks:
+    - name: Set State of Service
+    win_service:
+      name: w32time
+      state: stopped
+
+#The options that we have are, Absent, pushed, started, stopped, restarted.

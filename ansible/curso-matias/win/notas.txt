@@ -1,1 +1,14 @@
 antes de que esto funcione tengo que ejecutar el kinit
+
+-instalar choco
+-generar un usuario
+-poner vm en el dominio
+cambiar el nombre de la vm
+-actualizar
+crear una carpeta c:\backups
+copiar un archivo 
+-instalar un iis - verificar con Get-WindowFeature *web-server*
+configurar un vhost del iis
+levantar un sitio en iis
+instalar el sql
+

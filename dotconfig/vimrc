@@ -119,3 +119,7 @@ au BufRead,BufNewFile */ansible/*.yml vnoremap <leader>gr :call FindAnsibleRoleU
 " Configuration Vim.FZF
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+
+" soporte yaml e yml...
+autocmd FileType yaml setlocal ai ts=2 sw=2 et
+autocmd FileType yml setlocal ai ts=2 sw=2 et

@@ -1,0 +1,6 @@
+- name: "Set DNS Client"
+    win_dns_client:
+      adapter_names: Ethernet
+      ipv4_addresses:
+      - 10.45.0.20
+      - 8.8.8.8

@@ -1,0 +1,12 @@
+---
+- name: "Install Windows Deployment Services" 
+    win_feature:
+          name:
+            - WDS
+            - WDS-Deployment
+            - WDS-Transport   
+          state: present
+    register: win_feature
+  - name: "Reboot server if needed"
+    win_reboot:
+    when: win_feature.reboot_required

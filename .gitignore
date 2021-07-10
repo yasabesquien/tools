@@ -24,6 +24,5 @@ logs
 .vscode/
 .ansible/
 env/
-roles/
 collections/
 inventory/test/

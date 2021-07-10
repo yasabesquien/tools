@@ -1,0 +1,13 @@
+---
+#- name: "Crerate A record"
+#  community.windows.win_dns_record:
+#     name: "testserver"
+#     type: "A"
+#     value: "10.1.1.21"
+#     zone: "seguridadvial.gob.ar"
+- name: "Crerate Cname record"
+  community.windows.win_dns_record:
+     name: "test"
+     type: "CNAME"
+     value: "haproxy.seguridadvial.gob.ar"
+     zone: "seguridadvial.gob.ar"

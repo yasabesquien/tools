@@ -1,0 +1,5 @@
+---
+- name: "Run PoweShell cmdlets"
+  hosts: win1
+  tasks:
+    - win_shell: Install-PackageProvider -Name NuGet -force

@@ -1,0 +1,9 @@
+---
+- hosts: windows
+  tasks:
+    - name: Set Start Mode for a Service
+    win_service:
+      name: w32time
+      start_mode: manual
+
+#The options for the start mode are, auto, delayed, disabled a manual.

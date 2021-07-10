@@ -1,0 +1,4 @@
+---
+- name: "Set the TimeZone"
+  win_timezone:
+    timezone: "Argentina Standard Time" 

@@ -1,0 +1,17 @@
+---
+- hosts: windows
+  tasks:
+    name: Create local group
+      win_group:
+      name: DBA_USERS
+      description: DBA user group
+    - name: dba01
+      win_user:
+      name: dba01
+      password: SETPASSWORD
+      groups: DBA_USERS
+    - name: dba02
+      win_user:
+      name: dba02
+      pssword: SETPASSWORD
+      groups: DBA_USERS
