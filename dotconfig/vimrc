@@ -39,7 +39,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Syntastic'
 
-Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+Plugin 'stsewd/fzf-checkout.vim'
 
 Plugin 'pearofducks/ansible-vim'
 Plugin 'Yggdroot/indentLine'
@@ -119,7 +121,9 @@ au BufRead,BufNewFile */ansible/*.yml vnoremap <leader>gr :call FindAnsibleRoleU
 " Configuration Vim.FZF
 let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gc :GCheckout<CR>
 
 " soporte yaml e yml...
-autocmd FileType yaml setlocal ai ts=2 sw=2 et
-autocmd FileType yml setlocal ai ts=2 sw=2 et
+"autocmd FileType yaml setlocal ai ts=2 sw=2 et
+"autocmd FileType yml setlocal ai ts=2 sw=2 et

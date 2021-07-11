@@ -1,0 +1,21 @@
+---
+- name: "Run PoweShell cmdlets"
+  hosts: win1
+  tasks:
+    - win_shell: Get-WindowsFeature
+      register: WindowsFeature
+    - debug: msg={{ WindowsFeature.stdout }}
+
+- name: "Run PoweShell cmdlets"
+  hosts: win1
+  tasks:
+    - win_shell: Get-WindowsFeature | Where Installed
+      register: WindowsFeature
+    - debug: msg={{ WindowsFeature.stdout }}
+
+- name: "Run PoweShell cmdlets"
+  hosts: win1
+  tasks:
+    - win_shell: Get-WindowsFeature | Where InstallState -Eq Removed
+      register: WindowsFeature
+    - debug: msg={{ WindowsFeature.stdout }}

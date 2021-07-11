@@ -1,0 +1,6 @@
+---
+- name: "Listar modulos Removidos..."
+  win_shell: |
+    Get-WindowsFeature | Where -Eq Removed
+  register: WindowsFeature
+- debug: msg={{ WindowsFeature.stdout }}

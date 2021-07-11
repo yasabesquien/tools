@@ -1,0 +1,12 @@
+---
+- name: Install Telnet, Web-Asp-Net45, NET-Framework-45-ASPNET
+  win_feature:
+    name:
+      - Telnet-Client
+      - Web-Asp-Net45
+      - NET-Framework-45-ASPNET
+    state: present
+  register: WinFeature
+
+- debug: msg="{{ WinFeature }}"
+- debug: msg="{{ WinFeature.success }}"

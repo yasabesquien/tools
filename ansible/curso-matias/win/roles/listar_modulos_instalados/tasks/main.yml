@@ -1,0 +1,6 @@
+---
+- name: "Listar modulos instalados..."
+  win_shell: |
+    Get-WindowsFeature | Where Installed
+  register: WindowsFeature
+- debug: msg={{ WindowsFeature.stdout }}

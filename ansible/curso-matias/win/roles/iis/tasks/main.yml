@@ -5,3 +5,6 @@
       - Web-Server
       - Web-Mgmt-Console
     state: present
+  register: iis
+- debug: msg="{{ iis }}"
+- debug: msg="{{ iis.success }}"

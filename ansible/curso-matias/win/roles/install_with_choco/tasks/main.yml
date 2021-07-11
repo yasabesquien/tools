@@ -1,0 +1,6 @@
+- name: Install dotnet
+  win_chocolatey:
+    name:
+#    - dotnet-sdk --version=5.0.100
+    - dotnet-sdk 
+    state: present

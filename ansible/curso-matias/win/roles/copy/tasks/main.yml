@@ -11,7 +11,7 @@
 
 - name: Copy a single aspx file
   ansible.windows.win_copy:
-    src: sitio/index.aspx
+    src: sitio/index.asp
     dest: C:\inetpub\wwwroot\sitio
 
 - name: Copy a single html file

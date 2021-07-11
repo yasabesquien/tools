@@ -1,0 +1,12 @@
+---
+- name: Open site's port 8080 on firewall
+  win_firewall_rule:
+    name: mysite8080
+    enable: yes
+    state: present
+    localport: 8080
+    action: Allow
+    direction: In
+    protocol: Tcp
+    force: true
+  tags: firewall

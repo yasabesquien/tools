@@ -6,5 +6,11 @@
 #  - reboot
 #  - install_win_updates
 #  - install_choco
-  - copy
-  - iis_new_site
+#  - copy
+#  - iis
+#  - iis_new_site
+#  - listar_modulos_instalados
+#  - regedit
+#  - fw_open_port
+#  - install_win_feature
+  - install_with_choco

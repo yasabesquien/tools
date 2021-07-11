@@ -1,0 +1,6 @@
+---
+- name: "Listar todos los modulos disponibles..."
+  win_shell: |
+    Get-WindowsFeature 
+  register: WindowsFeature
+- debug: msg={{ WindowsFeature.stdout }}
