@@ -14,3 +14,5 @@ alias bat='batcat '
 
 alias gsi='git status --ignored'
 alias gcm='git commit -m '
+
+alias fzf="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 /{}'"
