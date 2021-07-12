@@ -1,0 +1,10 @@
+---
+- hosts: win1
+  tasks:
+  - name: Return information about an existing application pool
+    win_iis_webapppool:
+      name: DefaultAppPool
+      state: present
+    register: iis
+  - debug: msg={{ iis.info.atributes.state }}
+  

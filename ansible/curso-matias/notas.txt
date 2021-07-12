@@ -2,3 +2,7 @@
 -instalar haproxy
 -agregar 3 vhosts
 cambiar el puerto en el que corren
+
+el directorio de la variable tiene que tener el mismo nombre que el host en cuestion
+
+

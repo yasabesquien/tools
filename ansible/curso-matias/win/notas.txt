@@ -12,3 +12,4 @@ cambiar el nombre de la vm
 -levantar un sitio en iis
 instalar el sql
 
+ansible-vault create group_vars/all/vault.yml
