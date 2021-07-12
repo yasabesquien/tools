@@ -46,6 +46,9 @@ Plugin 'stsewd/fzf-checkout.vim'
 Plugin 'pearofducks/ansible-vim'
 Plugin 'Yggdroot/indentLine'
 
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'morhetz/gruvbox'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -123,6 +126,11 @@ let g:fzf_preview_window = 'right:50%'
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
 let $FZF_DEFAULT_OPTS='--reverse'
 nnoremap <leader>gc :GCheckout<CR>
+
+"colorscheme gruvbox
+"nmap <leader>gd <Plug>(coc-definition)
+"nmap <leader>gr <Plug>(coc-references)
+"nnoremap <C-p> :GFiles<CR>
 
 " soporte yaml e yml...
 "autocmd FileType yaml setlocal ai ts=2 sw=2 et
