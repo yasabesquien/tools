@@ -1,3 +1,41 @@
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'gruvbox-community/gruvbox'
+" dependencias de telescope...
+Plug 'neovim/nvim-lspconfig'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
+"Plug 'nvim-lspupdate'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'itchyny/lightline.vim'
+Plug 'tomasiser/vim-code-dark'
+
+Plug 'frazrepo/vim-rainbow'
+Plug 'itchyny/lightline.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+Plug 'mattn/emmet-vim'
+Plug 'airblade/vim-gitgutter'
+" Plug 'Syntastic'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
+
+Plug 'pearofducks/ansible-vim'
+Plug 'Yggdroot/indentLine'
+
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
+
+
+
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -32,23 +70,12 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|
 set shortmess+=c
 
-call plug#begin('~/.vim/plugged')
-Plug 'gruvbox-community/gruvbox'
-" dependencias de telescope...
-"Plug 'neovim/nvim-lspconfig'
-"Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'nvim-lspupdate'
-"Plug 'nvim-lua/popup.nvim'
-"Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope.nvim'
-
-call plug#end()
-
 colorscheme gruvbox
+" colorscheme codedark
 highlight Normal guibg=none
 
 let mapleader = " "
-" noremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
+noremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep for > ")})<CR>
 
 fun! TrimWhitespace()
     let l:save = winsaveview()
@@ -61,28 +88,10 @@ augroup THE_PRIMEAGEN
     autocmd BufWritePre * :call TrimWhitespace()
 augroup END
 
+if !has('gui_running')
+    set t_Co=256
+endif
+
 "lua << EOF
 "require'lspconfig'.pyright.setup{}
 "EOF
-"
-
-nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>phw :h <C-R>=expand("<cword>")<CR><CR>
-nnoremap <leader>h :wincmd h<CR>
-nnoremap <leader>j :wincmd j<CR>
-nnoremap <leader>k :wincmd k<CR>
-nnoremap <leader>l :wincmd l<CR>
-nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>ps :Rg<SPACE>
-nnoremap <C-p> :GFiles<CR>
-nnoremap <Leader>pf :Files<CR>
-nnoremap <Leader><CR> :so ~/.config/nvim/init.vim<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
-nnoremap <Leader>rp :resize 100<CR>
-nnoremap <Leader>ee oif err != nil {<CR>log.Fatalf("%+v\n", err)
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-
-
