@@ -13,6 +13,7 @@ export PATH=$PATH:~/.local/bin
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="aussiegeek"
+#ZSH_THEME="agnoster"
 #ZSH_THEME="bureau"
 #ZSH_THEME="candy"
 #ZSH_THEME="clean" # no muestra el host
