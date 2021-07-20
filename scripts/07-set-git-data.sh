@@ -30,5 +30,7 @@ else
   echo
   echo " uso:$0 <ssh-key> "
   echo
+  git config user.email "1903837+yasabesquien@users.noreply.github.com"
+  git config user.name "yasabesquien"
 
 fi
