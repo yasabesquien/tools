@@ -1,0 +1,1 @@
+saco el nombre de la nueva vm de las variables presentes en host_vars
