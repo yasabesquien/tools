@@ -1,4 +1,4 @@
-template_hostname: "Nfsen"
-template_hosts: "nfsen"
-template_ip: "10.45.0.150"
-template_gw: "10.45.0.8"
+template_hostname: "DockerAlpha"
+template_hosts: "dockeralpha"
+template_ip: "192.168.33.247"
+template_gw: "192.168.33.8"
