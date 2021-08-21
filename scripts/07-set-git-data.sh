@@ -1,7 +1,6 @@
 
 if [ $1 ];then
 
-  cd /pruebas/tools/scripts/
   echo
   echo " para todos los repos... "
   echo " git config --global user.email "you@example.com""
