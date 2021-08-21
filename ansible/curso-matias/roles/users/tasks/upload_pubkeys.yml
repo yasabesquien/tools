@@ -1,32 +1,16 @@
 ---
-- name: "Create root user's .ssh directory"
+- name: "Create matias user's .ssh directory"
   file:
-    path: /root/.ssh
+    path: /home/matias/.ssh
     state: directory
-    owner: root
-    group: root
-    mode: 0700
-
-- name: "Copy root user's authorized_keys"
-  copy:
-    src: authorized_keys_root
-    dest: /root/.ssh/authorized_keys
-    owner: root
-    group: root
-    mode: 0600
-
-- name: "Create sven user's .ssh directory"
-  file:
-    path: /home/sven/.ssh
-    state: directory
-    owner: sven
+    owner: matias
     group: users
     mode: 0700
 
-- name: "Copy sven user's authorized_keys"
+- name: "Copy matias user's authorized_keys"
   copy:
-    src: authorized_keys_sven
-    dest: /home/sven/.ssh/authorized_keys
-    owner: sven
+    src: authorized_keys_matias
+    dest: /home/matias/.ssh/authorized_keys
+    owner: matias
     group: users
     mode: 0600
