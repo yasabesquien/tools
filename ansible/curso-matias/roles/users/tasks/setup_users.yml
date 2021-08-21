@@ -1,22 +1,22 @@
 ---
-- name: Create "sven" user
+- name: Create "{{ template_usuario }}" user
   user:
-    name: sven
+    name: {{ template_usuario }}
     shell: /bin/bash
-    uid: 1000
+  #  uid: 1000
     group: users
     groups: sudo
     append: true # --> user is not removed from any other group
-    password: $6$2i/vlnXuBj/m8A$y9xNcMAJQstggFMSWYbVeJStvvDpk4s4jScPv074Fb94jSfCbxyWSPz.tmMPQ6Qiy6mnpn07SQRTe6Sex4Pfi/
+    password: $6$mysecretsalt$y0tDlmIJzhvevRuMmhWZSPh0pO737ziv2qrf/J2H6ZU5MWAjCVMXNg4r5fBgY0iFMGgOKQzxF/6gkBYZniPel.
 
-- name: Add user "sven" to "sudo-nopasswd" group
+- name: Add user "{{ template_usuario }}" to "sudo-nopasswd" group
   user:
-    name: sven
+    name: {{ template_usuario }}
     groups: sudo-nopasswd
     append: true # --> user is not removed from any other group
   when: passwordless_sudo is defined and passwordless_sudo == true
 
-- name: Remove user "sven" from "sudo-nopasswd" group
-  shell: /usr/sbin/delgroup sven sudo-nopasswd
+- name: Remove user "{{ template_usuario }}" from "sudo-nopasswd" group
+  shell: /usr/sbin/delgroup {{ template_usuario }} sudo-nopasswd
   when: not (passwordless_sudo is defined and passwordless_sudo == true)
   ignore_errors: yes
