@@ -1,7 +1,8 @@
 ---
-- name: Install zsh, htop, atop, rsync, NTP daemon
+- name: Install zsh, tree, htop, atop, rsync, NTP daemon
   apt:
     name:
+      - tree
       - mc
       - ntp
       - zsh

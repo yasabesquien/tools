@@ -1,0 +1,5 @@
+saco el nombre de la nueva vm de las variables presentes en host_vars
+
+1 - completar host_vars/template con los datos que correspondan
+
+2 - ejecutar ansible-playbook nro.yml
