@@ -128,6 +128,7 @@ let $FZF_DEFAULT_OPTS='--reverse'
 nnoremap <leader>gc :GCheckout<CR>
 
 "colorscheme gruvbox
+colorscheme pablo
 "nmap <leader>gd <Plug>(coc-definition)
 "nmap <leader>gr <Plug>(coc-references)
 "nnoremap <C-p> :GFiles<CR>
@@ -135,3 +136,29 @@ nnoremap <leader>gc :GCheckout<CR>
 " soporte yaml e yml...
 "autocmd FileType yaml setlocal ai ts=2 sw=2 et
 "autocmd FileType yml setlocal ai ts=2 sw=2 et
+
+" Number 5: Behavi Vim
+nnoremap Y y$
+
+" Number 4: Keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Number 3: Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Number 2: Jumplist mutations 
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Number 1: Moving text
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> :m .+1<CR>==
+inoremap <C-k> :m .-2<CR>==
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==

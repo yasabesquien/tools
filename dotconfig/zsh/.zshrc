@@ -2,11 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/root/.oh-my-zsh"
+#export ZSH="/root/.oh-my-zsh"
+export ZSH="/home/fg/.oh-my-zsh"
 
 export TERM=xterm-256color
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/scripts
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,6 +91,9 @@ plugins=(git ansible docker taskwarrior timewarrior)
 
 source $ZSH/oh-my-zsh.sh
 
+#autocompletar para azure-cli
+source '/home/fg/lib/azure-cli/az.completion'
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -130,6 +134,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
+export PATH="$PATH:~/scripts"
+
+export AZURE_CORE_COLLECT_TELEMETRY=false
+
 # asigno la version global de pyenv
 #layout pyenv 3.9.6
 
@@ -165,3 +173,8 @@ source ~/.zsh_plugins.sh
 #fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 
 ssh-add ~/.ssh/"yasabesquien@github"
+
+if [ `pwd` = "/mnt/wsl/docker-desktop-bind-mounts/kali-linux/8a5edab282632443219e051e4ade2d1d5bbc671c781051bf1437897cbdfea0f1/mnt/c/Users/EXO10" ];then
+	cd
+fi
+

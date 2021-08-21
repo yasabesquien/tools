@@ -16,3 +16,7 @@ alias gsi='git status --ignored'
 alias gcm='git commit -m '
 
 alias fzf="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 /{}'"
+
+alias p='sudo pacman -S --noconfirm '
+
+alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli '
