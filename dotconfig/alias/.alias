@@ -8,7 +8,8 @@ alias v='nvim '
 alias du='du -h'
 alias df='df -h'
 
-alias ping='hping3 '
+#alias ping='hping3 '
+alias ping='sudo ping '
 
 alias bat='batcat '
 
@@ -18,5 +19,6 @@ alias gcm='git commit -m '
 alias fzf="fzf --preview 'batcat --color=always --style=numbers --line-range=:500 /{}'"
 
 alias p='sudo pacman -S --noconfirm '
+alias pyu=' sudo pacman -Syu '
 
 alias aws='docker run --rm -it -v ~/.aws:/root/.aws -v $(pwd):/aws amazon/aws-cli '

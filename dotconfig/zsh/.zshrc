@@ -178,3 +178,4 @@ if [ `pwd` = "/mnt/wsl/docker-desktop-bind-mounts/kali-linux/8a5edab282632443219
 	cd
 fi
 
+unsetopt beep

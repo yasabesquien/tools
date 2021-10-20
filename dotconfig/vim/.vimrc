@@ -86,6 +86,7 @@ syntax on
 set nu
 set background=dark
 set visualbell
+set t_vb=
 set ignorecase
 set incsearch
 set showmatch
